@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* PlanMe Design System - Visual Retrô e Fofo
+Paleta: verde menta, bege claro, rosa antigo, marrom suave
+Fontes: Special Elite (títulos), Quicksand (texto)
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Background colors - Bege claro base */
+    --background: 48 20% 95%;
+    --foreground: 25 30% 20%;
+
+    /* Card colors - Papel vintage */
+    --card: 48 25% 97%;
+    --card-foreground: 25 30% 20%;
+
+    /* Popover colors */
+    --popover: 48 25% 97%;
+    --popover-foreground: 25 30% 20%;
+
+    /* Primary - Verde menta */
+    --primary: 165 45% 65%;
+    --primary-foreground: 48 25% 97%;
+    --primary-hover: 165 45% 55%;
+
+    /* Secondary - Rosa antigo */
+    --secondary: 340 25% 80%;
+    --secondary-foreground: 25 30% 20%;
+    --secondary-hover: 340 25% 70%;
+
+    /* Muted - Bege mais escuro */
+    --muted: 45 15% 85%;
+    --muted-foreground: 25 20% 40%;
+
+    /* Accent - Marrom suave */
+    --accent: 25 35% 70%;
+    --accent-foreground: 48 25% 97%;
+    --accent-hover: 25 35% 60%;
+
+    /* Destructive - Rosa mais forte */
+    --destructive: 350 70% 65%;
+    --destructive-foreground: 48 25% 97%;
+
+    /* Borders e inputs - Tom papel antigo */
+    --border: 45 20% 80%;
+    --input: 48 25% 92%;
+    --ring: 165 45% 65%;
+
+    /* Especiais PlanMe */
+    --vintage-paper: 45 25% 92%;
+    --typewriter-green: 150 35% 50%;
+    --flower-orange: 25 70% 70%;
+    --soft-pink: 340 30% 85%;
+    --warm-brown: 25 40% 45%;
+
+    /* Gradients */
+    --gradient-vintage: linear-gradient(135deg, hsl(var(--vintage-paper)), hsl(var(--soft-pink)));
+    --gradient-typewriter: linear-gradient(45deg, hsl(var(--typewriter-green)), hsl(var(--primary)));
+    
+    /* Shadows */
+    --shadow-vintage: 0 4px 20px hsl(var(--warm-brown) / 0.15);
+    --shadow-float: 0 8px 32px hsl(var(--warm-brown) / 0.2);
+    
+    /* Animations */
+    --transition-vintage: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  /* Tipografia PlanMe */
+  .font-vintage {
+    font-family: 'Special Elite', cursive;
+  }
+
+  .font-soft {
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  /* Efeitos vintage */
+  .vintage-paper {
+    background: var(--gradient-vintage);
+    box-shadow: var(--shadow-vintage);
+  }
+
+  .typewriter-effect {
+    background: var(--gradient-typewriter);
+    box-shadow: var(--shadow-float);
+  }
+
+  /* Animações especiais */
+  .float-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .typewriter-keys {
+    transition: var(--transition-vintage);
+  }
+
+  .typewriter-keys:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-float);
+  }
+
+  /* Efeito de máquina de escrever no texto */
+  .typing-effect {
+    overflow: hidden;
+    border-right: 2px solid hsl(var(--warm-brown));
+    white-space: nowrap;
+    animation: typing 2s steps(20, end), blink-cursor 0.75s step-end infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  @keyframes blink-cursor {
+    from, to { border-color: transparent; }
+    50% { border-color: hsl(var(--warm-brown)); }
+  }
+
+  /* Scrollbar personalizada */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--vintage-paper));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--warm-brown) / 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--warm-brown) / 0.5);
+  }
+}
