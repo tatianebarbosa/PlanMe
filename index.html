@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlanMe - Seu planner, do seu jeitinho</title>
+    <meta name="description" content="PlanMe - Planner digital retrô e fofo para organizar sua vida">
+    <meta name="author" content="PlanMe">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="vintage-paper header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="public/assets/b186d210-24c0-40a1-a9c8-5f6669a3c00b.png" alt="Máquina de escrever PlanMe" class="logo">
+                </div>
+                
+                <nav class="desktop-nav" aria-label="Navegação principal">
+                    <button type="button" onclick="showTab('home')" class="nav-link nav-tab active" id="tab-home">Home</button>
+                    <button type="button" onclick="showTab('planner')" class="nav-link nav-tab" id="tab-planner">Meu Planner</button>
+                    <button type="button" onclick="showTab('anotacoes')" class="nav-link nav-tab" id="tab-anotacoes">Anotações</button>
+                </nav>
+
+                <div class="header-actions">
+                    <button type="button" class="btn btn-primary" onclick="openNewNoteModal()">Nova Anotação</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container main-content">
+        <!-- Home Tab -->
+        <div id="content-home" class="tab-content active">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <div class="hero-logo">
+                        <img src="public/assets/eb543096-c99c-44f7-ae59-6a4aa15e8764.png" alt="PlanMe Logo" class="hero-logo-img">
+                    </div>
+                    <h1 class="hero-title font-vintage">Bem-vindo ao PlanMe!</h1>
+                    <p class="hero-subtitle font-soft">
+                        Projeto final do curso Desenvolvedor Web no Senac. Um planner digital retrô
+                        e fofo para organizar sua vida do seu jeitinho especial! ✨
+                    </p>
+                    <div class="hero-stats">
+                        <i data-lucide="coffee"></i>
+                        <span class="font-vintage">Visita #<span id="visit-count">1</span></span>
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <div class="hero-actions">
+                        <button onclick="showTab('planner')" class="btn btn-primary btn-lg">
+                            <i data-lucide="calendar"></i>
+                            Ver Meu Planner
+                        </button>
+                        <button onclick="showTab('anotacoes')" class="btn btn-outline btn-lg">
+                            <i data-lucide="book-open"></i>
+                            Minhas Anotações
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <div class="features-grid">
+                <div class="card vintage-paper feature-card">
+                    <div class="feature-icon">
+                        <i data-lucide="calendar"></i>
+                    </div>
+                    <h3 class="font-vintage">Planner Mensal</h3>
+                    <p class="font-soft">Visualize seus compromissos, eventos e lembretes em um calendário fofo e organizado.</p>
+                </div>
+                
+                <div class="card vintage-paper feature-card">
+                    <div class="feature-icon secondary">
+                        <i data-lucide="book-open"></i>
+                    </div>
+                    <h3 class="font-vintage">Anotações Retrô</h3>
+                    <p class="font-soft">Crie, edite e organize suas anotações com categorias personalizadas e busca inteligente.</p>
+                </div>
+                
+                <div class="card vintage-paper feature-card">
+                    <div class="feature-icon accent">
+                        <i data-lucide="heart"></i>
+                    </div>
+                    <h3 class="font-vintage">Interface Fofa</h3>
+                    <p class="font-soft">Design vintage e acolhedor que torna a organização um prazer e não uma tarefa.</p>
+                </div>
+            </div>
+
+            <!-- Quote Section -->
+            <section class="quote-section">
+                <i data-lucide="sparkles" class="quote-icon"></i>
+                <blockquote class="font-vintage quote-text">
+                    "A organização é a chave para transformar sonhos em realidade"
+                </blockquote>
+                <p class="font-soft quote-author">- Filosofia PlanMe</p>
+            </section>
+
+            <!-- How to Use Section -->
+            <div class="card vintage-paper how-to-section">
+                <h2 class="font-vintage section-title">Como usar o PlanMe</h2>
+                <div class="how-to-grid">
+                    <div class="how-to-steps">
+                        <div class="step">
+                            <div class="step-number primary">1</div>
+                            <div class="step-content">
+                                <h4 class="font-vintage">Planeje seu mês</h4>
+                                <p class="font-soft">Use o planner mensal para visualizar e organizar seus compromissos.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number secondary">2</div>
+                            <div class="step-content">
+                                <h4 class="font-vintage">Anote suas ideias</h4>
+                                <p class="font-soft">Capture pensamentos e tarefas em anotações organizadas por categoria.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="how-to-steps">
+                        <div class="step">
+                            <div class="step-number accent">3</div>
+                            <div class="step-content">
+                                <h4 class="font-vintage">Busque rapidamente</h4>
+                                <p class="font-soft">Use os filtros e busca para encontrar suas anotações em segundos.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number vintage">4</div>
+                            <div class="step-content">
+                                <h4 class="font-vintage">Organize do seu jeito</h4>
+                                <p class="font-soft">Personalize categorias e mantenha tudo organizado.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Planner Tab -->
+        <div id="content-planner" class="tab-content">
+            <div class="card vintage-paper planner-card">
+                <div class="planner-header">
+                    <button onclick="navigateMonth('prev')" class="btn btn-ghost">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    
+                    <div class="planner-title">
+                        <i data-lucide="calendar"></i>
+                        <span id="current-month-year" class="font-vintage">Janeiro 2025</span>
+                    </div>
+                    
+                    <button onclick="navigateMonth('next')" class="btn btn-ghost">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Calendar -->
+                <div class="calendar">
+                    <!-- Weekdays -->
+                    <div class="weekdays">
+                        <div class="weekday font-vintage">Dom</div>
+                        <div class="weekday font-vintage">Seg</div>
+                        <div class="weekday font-vintage">Ter</div>
+                        <div class="weekday font-vintage">Qua</div>
+                        <div class="weekday font-vintage">Qui</div>
+                        <div class="weekday font-vintage">Sex</div>
+                        <div class="weekday font-vintage">Sáb</div>
+                    </div>
+                    
+                    <!-- Calendar Days -->
+                    <div id="calendar-days" class="calendar-days">
+                        <!-- Dias preenchidos pelo JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Legend -->
+                <div class="calendar-legend">
+                    <div class="legend-item">
+                        <div class="legend-color primary"></div>
+                        <span class="font-soft">Compromissos</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color holiday"></div>
+                        <span class="font-soft">Feriados nacionais</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color task"></div>
+                        <span class="font-soft">Tarefas</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color list"></div>
+                        <span class="font-soft">Listas</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color book"></div>
+                        <span class="font-soft">Livros lidos</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color accent"></div>
+                        <span class="font-soft">Lembretes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="agenda-modal" class="modal hidden" aria-hidden="true">
+            <div class="modal-backdrop" onclick="closeAgendaModal()"></div>
+            <div class="modal-card vintage-paper" role="dialog" aria-modal="true" aria-labelledby="agenda-modal-title">
+                <div class="modal-header">
+                    <div>
+                        <span id="agenda-modal-title" class="font-vintage modal-title">Adicionar na agenda</span>
+                        <p id="agenda-selected-date" class="font-soft modal-subtitle"></p>
+                    </div>
+                    <button type="button" class="btn btn-ghost btn-sm" onclick="closeAgendaModal()">
+                        <i data-lucide="x"></i>
+                    </button>
+                </div>
+
+                <form id="agenda-form" class="agenda-form">
+                    <div class="form-row">
+                        <input type="text" id="agenda-title" placeholder="Título..." class="form-input font-soft" required>
+                        <select id="agenda-type" class="form-select font-soft">
+                            <option value="compromisso">Compromisso</option>
+                            <option value="tarefa">Tarefa</option>
+                            <option value="lista">Lista</option>
+                            <option value="livro">Livro lido</option>
+                            <option value="lembrete">Lembrete</option>
+                        </select>
+                    </div>
+                    <textarea id="agenda-description" placeholder="Descrição, detalhes ou observações..." class="form-textarea font-soft"></textarea>
+                    <div class="form-actions">
+                        <button type="button" onclick="closeAgendaModal()" class="btn btn-outline">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i data-lucide="save"></i>
+                            Salvar na Agenda
+                        </button>
+                    </div>
+                </form>
+
+                <div id="agenda-day-items" class="agenda-day-items"></div>
+            </div>
+        </div>
+
+        <!-- Anotações Tab -->
+        <div id="content-anotacoes" class="tab-content">
+            <!-- Search and Filter Header -->
+            <div class="card vintage-paper notes-header">
+                <div class="notes-title">
+                    <i data-lucide="book-open"></i>
+                    <span class="font-vintage">Minhas Anotações</span>
+                    <span id="notes-count" class="badge secondary">2 anotações</span>
+                </div>
+                
+                <div class="notes-controls">
+                    <div class="search-container">
+                        <i data-lucide="search"></i>
+                        <input type="text" id="search-notes" placeholder="Buscar anotações..." class="search-input font-soft">
+                    </div>
+                    
+                    <select id="filter-category" class="category-filter font-soft">
+                        <option value="Todas">Todas</option>
+                        <option value="Pessoal">Pessoal</option>
+                        <option value="Trabalho">Trabalho</option>
+                        <option value="Estudos">Estudos</option>
+                        <option value="Ideias">Ideias</option>
+                    </select>
+
+                    <button onclick="openNewNoteModal()" class="btn btn-primary">
+                        <i data-lucide="plus"></i>
+                        Nova Anotação
+                    </button>
+                </div>
+            </div>
+
+            <!-- Add Note Form -->
+            <div id="add-note-form" class="modal hidden" aria-hidden="true">
+                <div class="modal-backdrop" onclick="closeNewNoteModal()"></div>
+                <div class="modal-card vintage-paper note-form" role="dialog" aria-modal="true" aria-labelledby="note-modal-title">
+                    <div class="form-header">
+                        <span id="note-modal-title" class="font-vintage">✨ Nova Anotação</span>
+                        <button type="button" onclick="closeNewNoteModal()" class="btn btn-ghost btn-sm">
+                            <i data-lucide="x"></i>
+                        </button>
+                    </div>
+
+                    <div class="form-content">
+                        <div class="form-row">
+                            <input type="text" id="note-title" placeholder="Título da anotação..." class="form-input font-soft">
+                            <select id="note-category" class="form-select font-soft">
+                                <option value="Pessoal">Pessoal</option>
+                                <option value="Trabalho">Trabalho</option>
+                                <option value="Estudos">Estudos</option>
+                                <option value="Ideias">Ideias</option>
+                            </select>
+                        </div>
+                        <textarea id="note-content" placeholder="Digite o conteúdo da sua anotação aqui..." class="form-textarea font-soft"></textarea>
+                        <div class="form-actions">
+                            <button type="button" onclick="closeNewNoteModal()" class="btn btn-outline">Cancelar</button>
+                            <button type="button" onclick="saveNote()" class="btn btn-primary">
+                                <i data-lucide="save"></i>
+                                Salvar Anotação
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notes Grid -->
+            <div id="notes-grid" class="notes-grid">
+                <!-- Anotacoes preenchidas pelo JavaScript -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="card vintage-paper empty-state hidden">
+                <i data-lucide="book-open" class="empty-icon"></i>
+                <h3 class="font-vintage">Nenhuma anotação encontrada</h3>
+                <p class="font-soft empty-text">Comece criando sua primeira anotação!</p>
+                <button onclick="openNewNoteModal()" class="btn btn-primary">
+                    <i data-lucide="plus"></i>
+                    Criar Primeira Anotação
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="vintage-paper footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="public/assets/b186d210-24c0-40a1-a9c8-5f6669a3c00b.png" alt="PlanMe Typewriter" class="footer-logo-img">
+                </div>
+                <p class="font-soft footer-text">PlanMe © 2025 - Projeto Final Senac | Desenvolvedor Web</p>
+                <p class="font-vintage footer-tagline">Seu planner, do seu jeitinho ✨</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
